@@ -15,10 +15,12 @@ def make_grid(grid_num):
 {grid_num[7]} | {grid_num[8]} | {grid_num[9]}
 """
 
-def cpu_turn(cpu_num):
-    for cpu_num in grid_num:
-        if grid_num != "X" and grid_num != "O":
-            grid_num[int(cpu_num)] = cpu
+def cpu_turn():
+    while True:
+        cpu_num = random.randint(1, 9)
+        if grid_num[cpu_num] != "X" and grid_num[cpu_num] != "O":
+            grid_num[cpu_num] = cpu
+            break
 
 player = input("Choose either 'X' or 'O' ")
 cpu = ""
@@ -32,12 +34,17 @@ print("This is how the Tic Tac Toe grid is setup")
 print(make_grid(grid_num))
 advance = input("Enter Y to continue ")
 
+
 for num in range(1, 10):
-    player_grid = input("Where do you want to place your symbol at? ")
+    player_grid = int(input("Where do you want to place your symbol at? "))
+    if grid_num[player_grid] != "X" and grid_num[player_grid] != "O":
+        grid_num[player_grid] = player
+    else:
+        print("That spot is taken!")
     grid_num[int(player_grid)] = player
     
     cpu_num = int(random.randint(1, 9))
-    cpu_turn(cpu_num)
+    cpu_turn()
         
             
             
