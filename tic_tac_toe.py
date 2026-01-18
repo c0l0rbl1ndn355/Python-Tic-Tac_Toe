@@ -50,6 +50,7 @@ def is_draw(grid):
         if grid[i] != "X" and grid[i] != "O":
             return False
     return True
+    
 player = input("Choose either 'X' or 'O' ")
 #Updates the Player letter to be Capital
 if player == "x":
@@ -64,9 +65,9 @@ if player == "X" or player == "x":
 elif player == "O" or player == "o":
     cpu = "X"
 
-print("This is how the Tic Tac Toe grid is setup")
+print("This is how the Tic Tac Toe grid is setup:")
 print(make_grid(grid_num))
-advance = input("Enter Y to continue ")
+advance = input("Enter Y to continue: ")
 
 #This runs the game:
 for num in range(1, 10):
@@ -80,10 +81,10 @@ for num in range(1, 10):
     
     #updates the grid
     grid_num[int(player_grid)] = player
-    
-    cpu_num = int(random.randint(1, 9))
+
     cpu_turn()
     
+    #Checks if the game is finished, if it is, prints the result
     if check_winner(grid_num, player):
         print("You win!")
         break
@@ -93,7 +94,5 @@ for num in range(1, 10):
     elif is_draw(grid_num):
         print("Draw!")
         break
-            
-            
-    print(make_grid(grid_num))
-    
+
+    print(make_grid(grid_num)) 
