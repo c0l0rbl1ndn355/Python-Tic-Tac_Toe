@@ -34,18 +34,22 @@ print("This is how the Tic Tac Toe grid is setup")
 print(make_grid(grid_num))
 advance = input("Enter Y to continue ")
 
-
+#This runs the game:
 for num in range(1, 10):
+    #player input
     player_grid = int(input("Where do you want to place your symbol at? "))
+    #checks if player input is a valid spot
     if grid_num[player_grid] != "X" and grid_num[player_grid] != "O":
         grid_num[player_grid] = player
     else:
         print("That spot is taken!")
+    
+    #updates the grid
     grid_num[int(player_grid)] = player
     
     cpu_num = int(random.randint(1, 9))
     cpu_turn()
-        
+    
             
             
     print(make_grid(grid_num))
