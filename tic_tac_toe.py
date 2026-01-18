@@ -4,8 +4,7 @@ import random
 grid_num = [0,
     1, 2, 3,
     4, 5, 6,
-    7, 8, 9
-    ]
+    7, 8, 9]
     
 def make_grid(grid_num):
     return f"""
@@ -16,8 +15,10 @@ def make_grid(grid_num):
 {grid_num[7]} | {grid_num[8]} | {grid_num[9]}
 """
 
-
-
+def cpu_turn(cpu_num):
+    for cpu_num in grid_num:
+        if grid_num != "X" and grid_num != "O":
+            grid_num[int(cpu_num)] = cpu
 
 player = input("Choose either 'X' or 'O' ")
 cpu = ""
@@ -34,11 +35,10 @@ advance = input("Enter Y to continue ")
 for num in range(1, 10):
     player_grid = input("Where do you want to place your symbol at? ")
     grid_num[int(player_grid)] = player
-    cpu_grid = random.randint(1, 9)
-    if cpu_grid != player_grid:
-        rid_num[cpu_grid] = cpu
-    else: 
-        cpu_grid = random.randint(1, 9)
+    
+    cpu_num = int(random.randint(1, 9))
+    cpu_turn(cpu_num)
+        
             
             
     print(make_grid(grid_num))
